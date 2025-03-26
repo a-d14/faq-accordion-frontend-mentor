@@ -10,6 +10,8 @@
 
     @include a.add-flex(column, $gap: a.rem(24));
 
+    box-shadow: 0 a.rem(32) a.rem(56) rgba(80, 0, 118, 0.1);
+
     &__heading {
         @include a.add-flex(row, $align-items: center, $gap: a.rem(24));
 
@@ -94,6 +96,7 @@
 
     @media all and (min-width: 768px) {
         padding: a.rem(40);
+        border-radius: a.rem(16);
         gap: a.rem(32);
 
         img {
