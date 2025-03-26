@@ -1,0 +1,7 @@
+@use '../abstracts/' as a;
+
+footer {
+    text-align: center;
+    color: #301534;
+    font: a.rem(12)/1 'Work Sans Regular';
+}

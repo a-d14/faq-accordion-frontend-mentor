@@ -1,0 +1,36 @@
+@use '../abstracts/' as a;
+
+@font-face {
+    font-family: 'Work Sans Regular';
+    src: url('assets/fonts/static/WorkSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Work Sans SemiBold';
+    src: url('assets/fonts/static/WorkSans-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'Work Sans Bold';
+    src: url('assets/fonts/static/WorkSans-Bold.ttf');
+}
+
+body {
+    background: url('assets/images/background-pattern-mobile.svg'), #F8EEFF;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+
+    @include a.add-flex(column, center, center, a.rem(16));
+
+    @media all and (min-width: 768px) {
+        background: url('assets/images/background-pattern-desktop.svg'), #F8EEFF;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: top;
+    }
+}
+
+main {
+    padding: 0 a.rem(24);
+}

@@ -1,0 +1,110 @@
+@use '../abstracts/' as a;
+
+.accordion {
+    background-color:#FFF;
+    border-radius: a.rem(8);
+    padding: a.rem(24);
+
+    width: 100%;
+    max-width: a.rem(600);
+
+    @include a.add-flex(column, $gap: a.rem(24));
+
+    &__heading {
+        @include a.add-flex(row, $align-items: center, $gap: a.rem(24));
+
+        img {
+            width: a.rem(24);
+            height: auto;
+        }
+
+        h1 {
+            font: a.rem(32)/1 'Work Sans Bold';
+            color: #301534;
+        }
+    }
+
+    &__items {
+        @include a.add-flex(column, $gap: a.rem(24));
+    }
+
+    &__item {
+        @include a.add-flex(column);
+
+        &:not(:first-child) {
+            padding-top: a.rem(20);
+            border-top: 1px solid #F8EEFF;
+        }
+
+        &:first-child {
+            &__heading {
+                padding-top: 0;
+            }
+        }
+
+        &-heading {
+            @include a.add-flex(row, $justify-content: space-between, $align-items: center);
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            h2 {
+                font-size: a.rem(16);
+                color: #301534;
+                font: a.rem(18)/1 'Work Sans SemiBold', sans-serif;
+
+                &:hover {
+                    color: #AD28EB;
+                }
+            }
+
+            &__action {
+                flex-shrink: 0;
+                align-self: stretch;
+
+                background-color: transparent;
+
+                img {
+                    width: a.rem(24);
+                    height: a.rem(24);
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            &.open {
+                & + .accordion__item-body {
+                    padding-top: a.rem(24);
+                    max-height: a.rem(124);
+                }
+            }
+        }
+
+        &-body {
+            font: a.rem(14)/1.5 'Work Sans Regular';
+            color: #8B6990;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-out;
+        }
+    }
+
+    @media all and (min-width: 768px) {
+        padding: a.rem(40);
+        gap: a.rem(32);
+
+        img {
+            width: a.rem(40);
+            height: auto;
+        }
+
+        &__heading {
+            h1 {
+                font-size: a.rem(56);
+            }
+        }
+    }
+}
